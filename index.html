@@ -14,6 +14,7 @@
     padding: 40px;
     display: flex;
     justify-content: center;
+    scroll-behavior: smooth;
    }
 
    .resume-container {
@@ -21,12 +22,6 @@
        display: flex;
        flex-direction: column;
        gap: 30px;
-       animation: fadeIn 1.2s ease forwards;
-   }
-
-   @keyframes fadeIn {
-       from { opacity: 0; transform: translateY(40px); }
-       to { opacity: 1; transform: translateY(0); }
    }
 
    .resume-header {
@@ -59,6 +54,12 @@
        border: 5px solid rgba(255, 255, 255, 0.25);
        overflow: hidden;
        flex-shrink: 0;
+       transition: transform 0.4s ease, box-shadow 0.4s ease;
+   }
+
+   .profile-pic-container:hover {
+       transform: scale(1.05);
+       box-shadow: 0 0 40px rgba(255, 255, 255, 0.9);
    }
 
    @keyframes gradientAnimation {
@@ -99,6 +100,14 @@
        opacity: 0.9;
    }
 
+   .dynamic-greeting {
+       font-size: 1.2rem;
+       color: #ffdd59;
+       margin-top: 6px;
+       font-weight: 600;
+       text-shadow: 0 0 8px rgba(255, 221, 89, 0.6);
+   }
+
    .box {
        background: rgba(255, 255, 255, 0.15);
        padding: 35px;
@@ -106,18 +115,14 @@
        backdrop-filter: blur(18px);
        color: #fffef7;
        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-       animation: slideUp 1.1s ease;
-       transition: 0.3s ease;
+       opacity: 0;
+       transform: translateY(50px);
+       transition: 0.6s ease;
    }
 
-   .box:hover {
-       transform: translateY(-6px);
-       background: rgba(255, 255, 255, 0.25);
-   }
-
-   @keyframes slideUp {
-       from { opacity: 0; transform: translateY(50px); }
-       to { opacity: 1; transform: translateY(0); }
+   .box.visible {
+       opacity: 1;
+       transform: translateY(0);
    }
 
    .title { font-size: 2rem; margin-bottom: 15px; font-family: "Playfair Display", serif; text-shadow: 0 0 10px rgba(255, 255, 255, 0.4); }
@@ -136,12 +141,38 @@
        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
        cursor: default;
    }
-   .skill-tag:hover { transform: translateY(-4px); background: rgba(255, 255, 255, 0.35); }
+
+   .skill-tag:hover {
+       transform: translateY(-4px) scale(1.05);
+       background: rgba(255, 255, 255, 0.35);
+       box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+   }
 
    ul { padding: 0; list-style: none; margin-top: 10px; }
    ul li { margin: 12px 0; font-size: 1.15rem; color: #fffdf5; }
    a { color: #ffe9bf; text-decoration: none; transition: 0.3s; }
    a:hover { color: #fff; text-shadow: 0 0 10px rgba(255, 255, 255, 0.6); }
+
+   /* Back to top button */
+   #backToTop {
+       position: fixed;
+       bottom: 30px;
+       right: 30px;
+       background: linear-gradient(135deg, #ff1e42, #ff7a00);
+       color: #fff;
+       padding: 12px 18px;
+       border-radius: 30px;
+       font-weight: 700;
+       cursor: pointer;
+       box-shadow: 0 8px 20px rgba(255, 70, 70, 0.5);
+       display: none;
+       transition: 0.3s ease;
+   }
+
+   #backToTop:hover {
+       transform: translateY(-4px);
+       background: linear-gradient(135deg, #ff324d, #ff9d00);
+   }
 
    @media(max-width: 960px) {
        .resume-container { width: 90vw; }
@@ -157,11 +188,12 @@
 
     <div class="resume-header">
         <div class="profile-pic-container">
-            <img src="Donjerome.jpg" />
+            <img src="your-picture.jpg" alt="Don Jerome Pastrana" />
         </div>
         <div class="header-info">
             <h1>Pastrana, Don Jerome</h1>
             <p>Web Developer • UI/UX Designer • Creative Thinker</p>
+            <div class="dynamic-greeting" id="greeting"></div>
         </div>
     </div>
 
@@ -220,6 +252,41 @@
     </div>
 
 </div>
+
+<div id="backToTop">↑ Top</div>
+
+<script>
+  // Dynamic greeting
+  const greetingEl = document.getElementById('greeting');
+  const hour = new Date().getHours();
+  let greeting = '';
+  if(hour < 12) greeting = 'Good Morning ☀️';
+  else if(hour < 18) greeting = 'Good Afternoon 🌤️';
+  else greeting = 'Good Evening 🌙';
+  greetingEl.textContent = greeting;
+
+ 
+  const boxes = document.querySelectorAll('.box');
+  function revealBoxes() {
+      boxes.forEach(box => {
+          const boxTop = box.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+          if(boxTop < windowHeight - 100) {
+              box.classList.add('visible');
+          }
+      });
+  }
+  window.addEventListener('scroll', revealBoxes);
+  window.addEventListener('load', revealBoxes);
+
+  // Back to top button
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+      if(window.scrollY > 300) backToTop.style.display = 'block';
+      else backToTop.style.display = 'none';
+  });
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
 
 </body>
 </html>
