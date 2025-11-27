@@ -3,117 +3,128 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BSIT 22011</title></title>
+    <title>Facebook Style Profile</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
 
     <style>
         body {
             margin: 0;
-            padding: 0;
             font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #ff9966, #ff5e62);
+            background: #f0f2f5;
+        }
+
+        /* Facebook top bar */
+        .topbar {
+            background: #1877f2;
+            color: white;
+            padding: 12px 20px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Main container */
+        .container {
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #fff;
+            margin-top: 30px;
         }
 
-        .profile-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            width: 380px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 1.3s ease-in-out, floatUp 2s ease-in-out infinite alternate;
+        /* Left profile section */
+        .left-box {
+            width: 350px;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-right: 20px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #ccc;
+            margin: 0 auto;
         }
 
-        .profile-header {
+        .name {
             text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .profile-header h1 {
-            margin: 0;
+            font-size: 1.6rem;
             font-weight: 700;
-            font-size: 2rem;
+            margin-top: 15px;
         }
 
-        .profile-header h2 {
-            margin: 5px 0 0;
-            font-weight: 300;
+        .subtext {
+            text-align: center;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Info box */
+        .info-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f5f6f7;
+            border-radius: 8px;
+        }
+
+        .info-box h3 {
+            margin: 0 0 10px;
             font-size: 1.1rem;
-            opacity: 0.8;
-        }
-
-        .bio {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .contact-info h3 {
-            margin-bottom: 10px;
             font-weight: 700;
-            text-align: center;
         }
 
-        .contact-info ul {
+        .info-box li {
             list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .contact-info li {
-            margin: 10px 0;
+            margin: 8px 0;
             font-size: 0.95rem;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
-        .contact-info a {
+        .info-box a {
+            color: #1877f2;
             text-decoration: none;
-            color: #fff;
-            font-weight: 500;
-            transition: 0.3s;
         }
 
-        .contact-info a:hover {
-            color: #d1e3ff;
-        }
-        .box {
-            background: rgba(255, 255, 255, 0.15);
+        /* Right section (bio like FB About) */
+        .right-box {
+            width: 550px;
+            background: white;
+            border-radius: 10px;
             padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-</style>
+        .right-box h2 {
+            margin-top: 0;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .bio-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #444;
+        }
+    </style>
 </head>
 <body>
-    <div class="profile-card">
-        <div class="profile-header box">
-            <h1>Don Jerome</h1>
-            <h2>Web Developer & Designer</h2>
-        </div>
 
-        <div class="profile-body">
-            <p class="bio">
-                I craft simple, powerful websites through purposeful HTML and thoughtful design.
-                Passionate about turning ideas into clean, user‑focused web pages.
-            </p>
+    <div class="topbar">Facebook Profile</div>
 
-            <div class="contact-info box">
-                <h3>Contact & Links</h3>
+    <div class="container">
+
+        <!-- LEFT SIDE -->
+        <div class="left-box">
+            <div class="profile-pic"></div>
+            <div class="name">Don Jerome</div>
+            <div class="subtext">Web Developer & Designer</div>
+
+            <div class="info-box">
+                <h3>Contact Information</h3>
                 <ul>
                     <li>📧 Donjerome@gmail.com</li>
                     <li>📍 Quezon City, Commonwealth</li>
@@ -123,6 +134,16 @@
                 </ul>
             </div>
         </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="right-box">
+            <h2>Bio</h2>
+            <p class="bio-text">
+                I craft simple, powerful websites through purposeful HTML and thoughtful design.
+                Passionate about turning ideas into clean, user‑focused web pages.
+            </p>
+        </div>
+
     </div>
 </body>
 </html>
