@@ -3,202 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile</title>
+    <title>Cool Resume – Don Jerome</title>
 
-    <!-- Aesthetic Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
     <style>
         body {
             margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #FF4E50, #FFFFFF);
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #ff4e50, #ffffff);
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 40px;
             display: flex;
             justify-content: center;
-            align-items: center;
         }
 
-        .wrapper {
-            max-width: 950px;
-            width: 100%;
+        .resume-container {
+            width: 900px;
             display: flex;
             flex-direction: column;
             gap: 30px;
+            animation: fadeIn 1.2s ease forwards;
         }
 
-        /* HEADER */
-        .header {
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(40px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        /* Resume Header */
+        .resume-header {
             text-align: center;
+            padding: 25px;
+            background: rgba(255,255,255,0.12);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            color: #fff;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .resume-header h1 {
+            margin: 0;
             font-size: 3rem;
             font-family: "Playfair Display", serif;
-            font-weight: 700;
-            color: #fdfdfd;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            padding: 18px 0;
-            border-radius: 15px;
-            background: rgba(255,255,255,0.13);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-            transition: 0.4s ease;
+            letter-spacing: 2px;
+            color: #fffdf5;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
         }
 
-        .header:hover {
-            transform: scale(1.03);
-            background: rgba(255,255,255,0.22);
+        .resume-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
 
-        /* BOX (Glassmorphism) */
+        /* Section Boxes */
         .box {
-            background: rgba(255,255,255,0.12);
-            border-radius: 18px;
+            background: rgba(255,255,255,0.15);
             padding: 35px;
+            border-radius: 20px;
+            backdrop-filter: blur(18px);
+            color: #fffef7;
             box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-            backdrop-filter: blur(14px);
-            transition: 0.35s ease;
-            color: #fff;
+            animation: slideUp 1.1s ease;
+            transition: 0.3s ease;
         }
 
         .box:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.35);
-            background: rgba(255,255,255,0.22);
+            transform: translateY(-6px);
+            background: rgba(255,255,255,0.25);
         }
 
-        /* TITLES */
+        @keyframes slideUp {
+            from {opacity: 0; transform: translateY(50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        /* Titles */
         .title {
-            font-family: "Playfair Display", serif;
-            font-size: 2.2rem;
-            font-weight: 700;
+            font-size: 2rem;
             margin-bottom: 15px;
-            text-align: center;
-            color: #ffffff;
-            letter-spacing: 1px;
-            text-shadow: 0 0 8px rgba(255,255,255,0.4);
+            font-family: "Playfair Display", serif;
+            text-shadow: 0 0 10px rgba(255,255,255,0.4);
         }
 
-        /* PARAGRAPH TEXT */
         .text {
-            font-size: 1.2rem;
-            line-height: 1.75;
-            color: #f2f2f2;
-            text-align: center;
-            font-weight: 300;
-            letter-spacing: 0.5px;
-            text-shadow: 0 0 10px rgba(255,255,255,0.25);
-            transition: 0.3s ease;
+            font-size: 1.15rem;
+            line-height: 1.7;
         }
 
-        .text:hover {
-            color: #ffffff;
-            text-shadow: 0 0 15px rgba(255,255,255,0.45);
-        }
-
-        /* SKILLS SECTION */
-        .skills-list {
+        /* Skills Tags */
+        .skills {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 12px;
             margin-top: 20px;
         }
 
-        .skill {
+        .skill-tag {
             padding: 10px 20px;
-            background: rgba(255,255,255,0.18);
-            backdrop-filter: blur(10px);
-            border-radius: 25px;
-            color: #ffffff;
-            font-weight: 500;
-            font-size: 1.05rem;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: 0.3s ease;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(8px);
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
-        .skill:hover {
-            background: rgba(255,255,255,0.30);
-            transform: translateY(-3px);
-            text-shadow: 0 0 10px rgba(255,255,255,0.45);
+        .skill-tag:hover {
+            transform: translateY(-4px);
+            background: rgba(255,255,255,0.35);
         }
 
-        /* ADVANTAGES LIST */
-        .adv-list li {
-            font-size: 1.15rem;
-            color: #f8f8f8;
-            margin: 12px 0;
-            letter-spacing: 0.3px;
-            text-shadow: 0 0 5px rgba(255,255,255,0.25);
-        }
-
-        /* CONTACT LIST */
+        /* Contact List */
         ul {
             padding: 0;
             list-style: none;
-            text-align: center;
+            margin-top: 10px;
         }
 
         ul li {
+            margin: 12px 0;
             font-size: 1.15rem;
-            color: #ededed;
-            margin: 10px 0;
-            letter-spacing: 0.3px;
-            font-weight: 300;
+            color: #fffdf5;
         }
 
         a {
-            color: #b8e1ff;
+            color: #ffe9bf;
             text-decoration: none;
-            transition: 0.3s ease;
+            transition: 0.3s;
         }
 
         a:hover {
             color: #fff;
-            text-shadow: 0 0 10px rgba(255,255,255,0.55);
+            text-shadow: 0 0 10px rgba(255,255,255,0.6);
         }
 
-        /* BUTTON */
+        /* Button */
         .hire-btn {
-            display: block;
-            width: 200px;
-            margin: 25px auto 0;
-            text-align: center;
-            padding: 14px 20px;
-            border-radius: 30px;
-            font-size: 1.2rem;
-            font-weight: 600;
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 25px;
             color: #fff;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 30px;
             background: linear-gradient(135deg, #ff1e42, #ff7a00);
-            box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
-            cursor: pointer;
+            box-shadow: 0 8px 22px rgba(255, 70, 70, 0.5);
+            transition: 0.3s ease;
             text-decoration: none;
-            transition: 0.35s ease;
         }
 
         .hire-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 35px rgba(255, 0, 0, 0.55);
-            background: linear-gradient(135deg, #ff324d, #ff9a00);
-            text-shadow: 0 0 10px rgba(255,255,255,0.65);
+            transform: translateY(-4px);
+            background: linear-gradient(135deg, #ff324d, #ff9d00);
         }
     </style>
 </head>
-
 <body>
 
-    <div class="wrapper">
+    <div class="resume-container">
 
-        <div class="header">My Profile</div>
+        <!-- HEADER -->
+        <div class="resume-header">
+            <h1>Don Jerome</h1>
+            <p>Web Developer • UI/UX Designer • Creative Thinker</p>
+        </div>
 
-        <!-- ABOUT ME -->
+        <!-- ABOUT -->
         <div class="box">
             <div class="title">About Me</div>
             <p class="text">
-                I am Don Jerome — a developer and designer who loves turning ideas into visually stunning,
-                smooth, and user-friendly experiences.  
-                I blend creativity, clean structure, and aesthetic design to bring websites to life.
+                I'm a creative web developer and designer who transforms ideas into aesthetic,
+                smooth, and modern digital experiences. I specialize in making websites visually 
+                beautiful, functional, and enjoyable to use.
             </p>
             <a href="#" class="hire-btn">Hire Me</a>
         </div>
@@ -207,43 +187,42 @@
         <div class="box">
             <div class="title">Bio</div>
             <p class="text">
-                My journey started with simple layouts, but evolved into designing full digital experiences.
-                I explore UI, front-end interactions, modern design systems, and polished motion effects —
-                aiming to create experiences that feel elegant, alive, and memorable.
+                With experience in UI/UX design and front-end development, I focus on 
+                creating seamless interactions, balanced layouts, and modern interfaces.
+                I believe that design is not just what you see — it’s how it feels and flows.
             </p>
         </div>
 
         <!-- SKILLS -->
         <div class="box">
             <div class="title">Skills</div>
-            <div class="skills-list">
-                <div class="skill">HTML5</div>
-                <div class="skill">CSS3</div>
-                <div class="skill">JavaScript</div>
-                <div class="skill">UI/UX Design</div>
-                <div class="skill">Responsive Web Design</div>
-                <div class="skill">Git & GitHub</div>
-                <div class="skill">Figma</div>
-                <div class="skill">Graphic Design</div>
+            <div class="skills">
+                <div class="skill-tag">HTML</div>
+                <div class="skill-tag">CSS</div>
+                <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">UI / UX</div>
+                <div class="skill-tag">Responsive Design</div>
+                <div class="skill-tag">Figma</div>
+                <div class="skill-tag">Git & GitHub</div>
+                <div class="skill-tag">Graphic Design</div>
             </div>
         </div>
 
         <!-- ADVANTAGES -->
         <div class="box">
-            <div class="title">What I Can Bring to Your Company</div>
-            <ul class="adv-list">
-                <li>✔ Create visually stunning and modern interfaces that improve user engagement.</li>
-                <li>✔ Build clean, responsive, and high-performance websites.</li>
-                <li>✔ Strengthen brand identity through consistent design & layout.</li>
-                <li>✔ Deliver smooth UI animations for a premium user experience.</li>
-                <li>✔ Solve problems creatively with a user-first mindset.</li>
-                <li>✔ Bring teamwork, dedication, and a passion for constant improvement.</li>
+            <div class="title">What I Can Bring</div>
+            <ul>
+                <li>✔ Clean, modern, and beautiful UI designs</li>
+                <li>✔ Smooth animations for premium UX</li>
+                <li>✔ Fast and responsive web development</li>
+                <li>✔ Branding and layout consistency</li>
+                <li>✔ Creative ideas & problem-solving skills</li>
             </ul>
         </div>
 
         <!-- CONTACT -->
         <div class="box">
-            <div class="title">Contact Info</div>
+            <div class="title">Contact</div>
             <ul>
                 <li>📧 Donjerome@gmail.com</li>
                 <li>📍 Quezon City, Commonwealth</li>
