@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <style>
-        /* Global Styles */
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
@@ -19,16 +18,14 @@
             align-items: center;
         }
 
-        /* Wrapper */
         .wrapper {
-            max-width: 900px;
+            max-width: 950px;
             width: 100%;
             display: flex;
             flex-direction: column;
             gap: 30px;
         }
 
-        /* Header */
         .header {
             text-align: center;
             font-size: 2.8rem;
@@ -46,12 +43,12 @@
 
         .header:hover {
             transform: scale(1.02);
-            background: rgba(255,255,255,0.22);
+            background: rgba(255,255,255,0.25);
         }
 
-        /* Boxes */
+        /* BOX DESIGN */
         .box {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255,255,255,0.14);
             border-radius: 18px;
             padding: 30px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.25);
@@ -63,10 +60,9 @@
         .box:hover {
             transform: translateY(-7px);
             box-shadow: 0 12px 35px rgba(0,0,0,0.35);
-            background: rgba(255, 255, 255, 0.22);
+            background: rgba(255,255,255,0.22);
         }
 
-        /* Titles */
         .title {
             font-size: 2rem;
             font-weight: 700;
@@ -74,12 +70,37 @@
             text-align: center;
         }
 
-        /* Text */
         .text {
             font-size: 1.15rem;
-            line-height: 1.6;
-            color: #f1f1f1;
+            line-height: 1.65;
+            color: #f8f8f8;
             text-align: center;
+        }
+
+        /* Skills Section */
+        .skills-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill {
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.18);
+            backdrop-filter: blur(8px);
+            border-radius: 25px;
+            color: #fff;
+            font-weight: 500;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: 0.3s ease;
+        }
+
+        .skill:hover {
+            background: rgba(255,255,255,0.28);
+            transform: translateY(-3px);
         }
 
         /* Contact List */
@@ -106,11 +127,6 @@
         a:hover {
             color: #76c3ff;
         }
-
-        @media (max-width: 600px) {
-            .header { font-size: 2rem; }
-            .title { font-size: 1.6rem; }
-        }
     </style>
 </head>
 
@@ -124,15 +140,47 @@
         <div class="box">
             <div class="title">About Me</div>
             <p class="text">
-                I’m Don Jerome — a passionate web developer and designer devoted to creating
-                clean, modern, and user-centered digital experiences.  
-                I love transforming ideas into elegant interfaces through smooth layouts,
-                refined visuals, and meaningful design.  
-                Every project is a chance to build something beautiful and functional.
+                Hi, I’m Don Jerome — a creative web developer, designer, and digital enthusiast.
+                I love building aesthetic interfaces and crafting modern digital experiences that feel smooth,
+                intuitive, and meaningful. My work blends creativity, clean code, and user-centered design.
+                <br><br>
+                I enjoy exploring new technologies, improving my skills, and bringing ideas to life through visuals 
+                and smart functionality. Whether it's building websites, designing layouts, or experimenting with UI/UX,
+                I’m always motivated to create something impressive.
             </p>
         </div>
 
-        <!-- Contact Info Box -->
+        <!-- Bio Box -->
+        <div class="box">
+            <div class="title">Bio</div>
+            <p class="text">
+                I began my journey in web development with a curiosity for how digital interfaces work.
+                What started as simple HTML and CSS experiments grew into a passion for designing complete experiences.
+                I enjoy solving visual and technical problems, and I believe every good design tells a story.
+                <br><br>
+                I aim to build projects that feel alive — smooth transitions, aesthetic layouts, and meaningful interactions.
+                My goal is to keep improving, learning, and pushing what I can create on the web.
+            </p>
+        </div>
+
+        <!-- Skills Box -->
+        <div class="box">
+            <div class="title">Skills</div>
+
+            <div class="skills-list">
+                <div class="skill">HTML5</div>
+                <div class="skill">CSS3</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">Responsive Design</div>
+                <div class="skill">UI/UX Principles</div>
+                <div class="skill">Graphic Design</div>
+                <div class="skill">Git & GitHub</div>
+                <div class="skill">Web Layout Design</div>
+                <div class="skill">Figma (UI Design)</div>
+            </div>
+        </div>
+
+        <!-- Contact Box -->
         <div class="box">
             <div class="title">Contact Info</div>
             <ul>
@@ -148,3 +196,4 @@
 
 </body>
 </html>
+
