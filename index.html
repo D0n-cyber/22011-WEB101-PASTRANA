@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Aesthetic Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
         body {
             margin: 0;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #FF4E50, #FFFFFF);
             min-height: 100vh;
             padding: 40px 20px;
@@ -26,35 +28,37 @@
             gap: 30px;
         }
 
+        /* HEADER */
         .header {
             text-align: center;
-            font-size: 2.8rem;
+            font-size: 3rem;
+            font-family: "Playfair Display", serif;
             font-weight: 700;
-            letter-spacing: 2px;
-            color: #ffffff;
+            color: #fdfdfd;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            padding: 15px 0;
+            padding: 18px 0;
             border-radius: 15px;
-            background: rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.13);
             backdrop-filter: blur(10px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.2);
             transition: 0.4s ease;
         }
 
         .header:hover {
-            transform: scale(1.02);
-            background: rgba(255,255,255,0.25);
+            transform: scale(1.03);
+            background: rgba(255,255,255,0.22);
         }
 
-        /* BOX DESIGN */
+        /* BOX (Glassmorphism) */
         .box {
-            background: rgba(255,255,255,0.14);
+            background: rgba(255,255,255,0.12);
             border-radius: 18px;
-            padding: 30px;
+            padding: 35px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(14px);
+            transition: 0.35s ease;
             color: #fff;
-            transition: all 0.35s ease;
         }
 
         .box:hover {
@@ -63,21 +67,36 @@
             background: rgba(255,255,255,0.22);
         }
 
+        /* TITLES */
         .title {
-            font-size: 2rem;
+            font-family: "Playfair Display", serif;
+            font-size: 2.2rem;
             font-weight: 700;
             margin-bottom: 15px;
             text-align: center;
+            color: #ffffff;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px rgba(255,255,255,0.4);
         }
 
+        /* PARAGRAPH TEXT */
         .text {
-            font-size: 1.15rem;
-            line-height: 1.65;
-            color: #f8f8f8;
+            font-size: 1.2rem;
+            line-height: 1.75;
+            color: #f2f2f2;
             text-align: center;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 10px rgba(255,255,255,0.25);
+            transition: 0.3s ease;
         }
 
-        /* Skills Section */
+        .text:hover {
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(255,255,255,0.45);
+        }
+
+        /* SKILLS SECTION */
         .skills-list {
             display: flex;
             justify-content: center;
@@ -89,50 +108,62 @@
         .skill {
             padding: 10px 20px;
             background: rgba(255,255,255,0.18);
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(10px);
             border-radius: 25px;
-            color: #fff;
+            color: #ffffff;
             font-weight: 500;
-            font-size: 1rem;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             transition: 0.3s ease;
         }
 
         .skill:hover {
-            background: rgba(255,255,255,0.28);
+            background: rgba(255,255,255,0.30);
             transform: translateY(-3px);
+            text-shadow: 0 0 10px rgba(255,255,255,0.45);
         }
 
-        /* Contact List */
+        /* ADVANTAGES LIST */
+        .adv-list li {
+            font-size: 1.15rem;
+            color: #f8f8f8;
+            margin: 12px 0;
+            letter-spacing: 0.3px;
+            text-shadow: 0 0 5px rgba(255,255,255,0.25);
+        }
+
+        /* CONTACT LIST */
         ul {
             padding: 0;
-            margin: 0;
             list-style: none;
             text-align: center;
         }
 
-        li {
-            margin: 12px 0;
-            font-size: 1.1rem;
-            color: #eaeaea;
+        ul li {
+            font-size: 1.15rem;
+            color: #ededed;
+            margin: 10px 0;
+            letter-spacing: 0.3px;
+            font-weight: 300;
         }
 
         a {
-            color: #1e90ff;
+            color: #b8e1ff;
             text-decoration: none;
-            font-weight: 500;
             transition: 0.3s ease;
         }
 
         a:hover {
-            color: #76c3ff;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255,255,255,0.55);
         }
 
         /* BUTTON */
         .hire-btn {
             display: block;
             width: 200px;
-            margin: 20px auto 0;
+            margin: 25px auto 0;
             text-align: center;
             padding: 14px 20px;
             border-radius: 30px;
@@ -140,7 +171,7 @@
             font-weight: 600;
             color: #fff;
             background: linear-gradient(135deg, #ff1e42, #ff7a00);
-            box-shadow: 0 5px 18px rgba(255, 0, 0, 0.4);
+            box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
             cursor: pointer;
             text-decoration: none;
             transition: 0.35s ease;
@@ -148,21 +179,9 @@
 
         .hire-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.55);
-            background: linear-gradient(135deg, #ff324d, #ffa200);
-        }
-
-        /* Advantages List */
-        .adv-list {
-            margin-top: 20px;
-            padding-left: 20px;
-        }
-
-        .adv-list li {
-            font-size: 1.15rem;
-            text-align: left;
-            color: #f0f0f0;
-            margin: 12px 0;
+            box-shadow: 0 12px 35px rgba(255, 0, 0, 0.55);
+            background: linear-gradient(135deg, #ff324d, #ff9a00);
+            text-shadow: 0 0 10px rgba(255,255,255,0.65);
         }
     </style>
 </head>
@@ -173,75 +192,18 @@
 
         <div class="header">My Profile</div>
 
-        <!-- About Me -->
+        <!-- ABOUT ME -->
         <div class="box">
             <div class="title">About Me</div>
             <p class="text">
-                Hi, I’m Don Jerome — a creative web developer and designer.  
-                I build modern, aesthetic, and user-focused digital experiences.
-                My passion lies in transforming ideas into beautiful and functional designs,
-                blending creativity with strong technical skills.
+                I am Don Jerome — a developer and designer who loves turning ideas into visually stunning,
+                smooth, and user-friendly experiences.  
+                I blend creativity, clean structure, and aesthetic design to bring websites to life.
             </p>
-
-            <!-- Button -->
             <a href="#" class="hire-btn">Hire Me</a>
         </div>
 
-        <!-- Bio -->
+        <!-- BIO -->
         <div class="box">
             <div class="title">Bio</div>
             <p class="text">
-                I started my journey creating simple layouts and experimenting with UI design.
-                Over time, I developed a deeper love for front-end development, animations,
-                user experience, and responsive design.  
-                My goal is to create websites that not only work — but feel amazing to use.
-            </p>
-        </div>
-
-        <!-- Skills -->
-        <div class="box">
-            <div class="title">Skills</div>
-
-            <div class="skills-list">
-                <div class="skill">HTML5</div>
-                <div class="skill">CSS3</div>
-                <div class="skill">JavaScript</div>
-                <div class="skill">Responsive Design</div>
-                <div class="skill">UI/UX Design</div>
-                <div class="skill">Figma</div>
-                <div class="skill">Git & GitHub</div>
-                <div class="skill">Web Layout Design</div>
-                <div class="skill">Graphic Design</div>
-            </div>
-        </div>
-
-        <!-- Advantages -->
-        <div class="box">
-            <div class="title">What I Can Bring to Your Company</div>
-            <ul class="adv-list">
-                <li>✔ Deliver clean, modern, and responsive website designs.</li>
-                <li>✔ Improve UI/UX to boost user engagement and satisfaction.</li>
-                <li>✔ Create strong branding visuals and consistent design identity.</li>
-                <li>✔ Develop smooth animations and transitions for a premium feel.</li>
-                <li>✔ Ensure fast, optimized, and mobile-friendly website performance.</li>
-                <li>✔ Work efficiently with teams using Git, Figma, and modern tools.</li>
-                <li>✔ Bring creativity, problem-solving, and a growth-focused mindset.</li>
-            </ul>
-        </div>
-
-        <!-- Contact -->
-        <div class="box">
-            <div class="title">Contact Info</div>
-            <ul>
-                <li>📧 Donjerome@gmail.com</li>
-                <li>📍 Quezon City, Commonwealth</li>
-                <li>🔵 <a href="https://www.facebook.com/donjerome09" target="_blank">Facebook</a></li>
-                <li>🔗 <a href="https://www.linkedin.com/in/donjerome" target="_blank">LinkedIn</a></li>
-                <li>🐙 <a href="https://github.com/D0n-cyber" target="_blank">GitHub</a></li>
-            </ul>
-        </div>
-
-    </div>
-
-</body>
-</html>
