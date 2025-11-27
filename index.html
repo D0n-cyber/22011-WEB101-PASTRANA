@@ -38,39 +38,27 @@
             }
         }
 
-        /* Resume Header */
+        /* HEADER BOX */
         .resume-header {
-            text-align: center;
-            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
             background: rgba(255, 255, 255, 0.12);
             border-radius: 20px;
             backdrop-filter: blur(15px);
             color: #fff;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: visible;
+            padding: 25px 40px;
+            transition: background 0.3s ease;
         }
 
-        .resume-header h1 {
-            margin: 0;
-            font-size: 3rem;
-            font-family: "Playfair Display", serif;
-            letter-spacing: 2px;
-            color: #fffdf5;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-
-        .resume-header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
+        .resume-header:hover {
+            background: rgba(255, 255, 255, 0.25);
         }
 
         /* Profile Picture Container with animated background */
         .profile-pic-container {
-            position: absolute;
-            top: -90px;
-            left: 50%;
-            transform: translateX(-50%);
+            position: relative;
             width: 180px;
             height: 180px;
             border-radius: 50%;
@@ -83,7 +71,7 @@
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
             border: 5px solid rgba(255, 255, 255, 0.25);
             overflow: hidden;
-            z-index: 10;
+            flex-shrink: 0;
         }
 
         @keyframes gradientAnimation {
@@ -106,6 +94,28 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
             border: 4px solid rgba(255, 255, 255, 0.85);
             background: #fff;
+        }
+
+        /* Name and title */
+        .header-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .header-info h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 3rem;
+            margin: 0;
+            color: #fffdf5;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .header-info p {
+            font-size: 1.3rem;
+            margin-top: 10px;
+            opacity: 0.9;
         }
 
         /* Section Boxes */
@@ -212,6 +222,7 @@
             box-shadow: 0 8px 22px rgba(255, 70, 70, 0.5);
             transition: 0.3s ease;
             text-decoration: none;
+            width: max-content;
         }
 
         .hire-btn:hover {
@@ -225,14 +236,16 @@
                 width: 90vw;
             }
 
+            .resume-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
             .profile-pic-container {
-                position: relative;
-                top: 0;
-                left: 0;
-                transform: none;
-                margin: 0 auto 30px auto;
                 width: 140px;
                 height: 140px;
+                margin-bottom: 20px;
             }
 
             .profile-pic-container img {
@@ -246,14 +259,16 @@
 
     <div class="resume-container">
 
-        <!-- HEADER -->
+        <!-- HEADER with photo and info side by side -->
         <div class="resume-header">
-            <!-- Profile Picture with Cool Background -->
             <div class="profile-pic-container">
                 <img src="/mnt/data/d278af45-bf84-43b4-94d8-08f115f837e6.png" alt="Don Jerome Profile Picture" />
             </div>
-            <h1>Don Jerome</h1>
-            <p>Web Developer • UI/UX Designer • Creative Thinker</p>
+            <div class="header-info">
+                <h1>Don Jerome</h1>
+                <p>Web Developer • UI/UX Designer • Creative Thinker</p>
+                <a href="#" class="hire-btn">Hire Me</a>
+            </div>
         </div>
 
         <!-- ABOUT -->
@@ -264,7 +279,6 @@
                 smooth, and modern digital experiences. I specialize in making websites visually 
                 beautiful, functional, and enjoyable to use.
             </p>
-            <a href="#" class="hire-btn">Hire Me</a>
         </div>
 
         <!-- BIO -->
