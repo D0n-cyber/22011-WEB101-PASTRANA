@@ -127,6 +127,43 @@
         a:hover {
             color: #76c3ff;
         }
+
+        /* BUTTON */
+        .hire-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto 0;
+            text-align: center;
+            padding: 14px 20px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(135deg, #ff1e42, #ff7a00);
+            box-shadow: 0 5px 18px rgba(255, 0, 0, 0.4);
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.35s ease;
+        }
+
+        .hire-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.55);
+            background: linear-gradient(135deg, #ff324d, #ffa200);
+        }
+
+        /* Advantages List */
+        .adv-list {
+            margin-top: 20px;
+            padding-left: 20px;
+        }
+
+        .adv-list li {
+            font-size: 1.15rem;
+            text-align: left;
+            color: #f0f0f0;
+            margin: 12px 0;
+        }
     </style>
 </head>
 
@@ -136,34 +173,32 @@
 
         <div class="header">My Profile</div>
 
-        <!-- About Me Box -->
+        <!-- About Me -->
         <div class="box">
             <div class="title">About Me</div>
             <p class="text">
-                Hi, I’m Don Jerome — a creative web developer, designer, and digital enthusiast.
-                I love building aesthetic interfaces and crafting modern digital experiences that feel smooth,
-                intuitive, and meaningful. My work blends creativity, clean code, and user-centered design.
-                <br><br>
-                I enjoy exploring new technologies, improving my skills, and bringing ideas to life through visuals 
-                and smart functionality. Whether it's building websites, designing layouts, or experimenting with UI/UX,
-                I’m always motivated to create something impressive.
+                Hi, I’m Don Jerome — a creative web developer and designer.  
+                I build modern, aesthetic, and user-focused digital experiences.
+                My passion lies in transforming ideas into beautiful and functional designs,
+                blending creativity with strong technical skills.
             </p>
+
+            <!-- Button -->
+            <a href="#" class="hire-btn">Hire Me</a>
         </div>
 
-        <!-- Bio Box -->
+        <!-- Bio -->
         <div class="box">
             <div class="title">Bio</div>
             <p class="text">
-                I began my journey in web development with a curiosity for how digital interfaces work.
-                What started as simple HTML and CSS experiments grew into a passion for designing complete experiences.
-                I enjoy solving visual and technical problems, and I believe every good design tells a story.
-                <br><br>
-                I aim to build projects that feel alive — smooth transitions, aesthetic layouts, and meaningful interactions.
-                My goal is to keep improving, learning, and pushing what I can create on the web.
+                I started my journey creating simple layouts and experimenting with UI design.
+                Over time, I developed a deeper love for front-end development, animations,
+                user experience, and responsive design.  
+                My goal is to create websites that not only work — but feel amazing to use.
             </p>
         </div>
 
-        <!-- Skills Box -->
+        <!-- Skills -->
         <div class="box">
             <div class="title">Skills</div>
 
@@ -172,15 +207,29 @@
                 <div class="skill">CSS3</div>
                 <div class="skill">JavaScript</div>
                 <div class="skill">Responsive Design</div>
-                <div class="skill">UI/UX Principles</div>
-                <div class="skill">Graphic Design</div>
+                <div class="skill">UI/UX Design</div>
+                <div class="skill">Figma</div>
                 <div class="skill">Git & GitHub</div>
                 <div class="skill">Web Layout Design</div>
-                <div class="skill">Figma (UI Design)</div>
+                <div class="skill">Graphic Design</div>
             </div>
         </div>
 
-        <!-- Contact Box -->
+        <!-- Advantages -->
+        <div class="box">
+            <div class="title">What I Can Bring to Your Company</div>
+            <ul class="adv-list">
+                <li>✔ Deliver clean, modern, and responsive website designs.</li>
+                <li>✔ Improve UI/UX to boost user engagement and satisfaction.</li>
+                <li>✔ Create strong branding visuals and consistent design identity.</li>
+                <li>✔ Develop smooth animations and transitions for a premium feel.</li>
+                <li>✔ Ensure fast, optimized, and mobile-friendly website performance.</li>
+                <li>✔ Work efficiently with teams using Git, Figma, and modern tools.</li>
+                <li>✔ Bring creativity, problem-solving, and a growth-focused mindset.</li>
+            </ul>
+        </div>
+
+        <!-- Contact -->
         <div class="box">
             <div class="title">Contact Info</div>
             <ul>
@@ -196,4 +245,3 @@
 
 </body>
 </html>
-
