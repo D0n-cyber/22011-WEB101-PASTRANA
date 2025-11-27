@@ -6,15 +6,17 @@
 <title>BSIT</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
 <style>
+   /* Body and main container */
    body {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    background: linear-gradient(135deg, #0d1b2a, #1b263b, #415a77, #0d1b2a);
-    min-height: 100vh;
-    padding: 40px;
-    display: flex;
-    justify-content: center;
-    scroll-behavior: smooth;
+       margin: 0;
+       font-family: "Poppins", sans-serif;
+       background: linear-gradient(135deg, #0d1b2a, #1b263b, #415a77, #0d1b2a);
+       min-height: 100vh;
+       padding: 40px;
+       display: flex;
+       justify-content: center;
+       overflow-x: hidden;
+       transition: background 0.5s ease;
    }
 
    .resume-container {
@@ -22,8 +24,22 @@
        display: flex;
        flex-direction: column;
        gap: 30px;
+       position: relative;
+       z-index: 1;
    }
 
+   /* Particle background */
+   #particles {
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       z-index: 0;
+       pointer-events: none;
+   }
+
+   /* Header */
    .resume-header {
        display: flex;
        align-items: center;
@@ -34,10 +50,13 @@
        color: #fff;
        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
        padding: 25px 40px;
-       transition: background 0.3s ease;
+       transition: background 0.3s ease, transform 0.3s ease;
    }
 
-   .resume-header:hover { background: rgba(255, 255, 255, 0.25); }
+   .resume-header:hover { 
+       background: rgba(255, 255, 255, 0.25);
+       transform: translateY(-4px);
+   }
 
    .profile-pic-container {
        position: relative;
@@ -73,10 +92,7 @@
        height: 100%;
        border-radius: 50%;
        object-fit: cover;
-       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
        border: 4px solid rgba(255, 255, 255, 0.85);
-       background: transparent;
-       display: block;
    }
 
    .header-info {
@@ -86,18 +102,22 @@
        justify-content: center;
    }
 
+   /* Animated gradient name */
    .header-info h1 {
        font-family: "Playfair Display", serif;
        font-size: 3rem;
        margin: 0;
-       color: #fffdf5;
-       text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+       background: linear-gradient(270deg, #ff1e42, #ff7a00, #f9d423, #1f4037);
+       background-size: 600% 600%;
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+       animation: gradientText 10s ease infinite;
    }
 
-   .header-info p {
-       font-size: 1.3rem;
-       margin-top: 10px;
-       opacity: 0.9;
+   @keyframes gradientText {
+       0% { background-position: 0% 50%; }
+       50% { background-position: 100% 50%; }
+       100% { background-position: 0% 50%; }
    }
 
    .dynamic-greeting {
@@ -108,6 +128,7 @@
        text-shadow: 0 0 8px rgba(255, 221, 89, 0.6);
    }
 
+   /* Boxes */
    .box {
        background: rgba(255, 255, 255, 0.15);
        padding: 35px;
@@ -125,27 +146,37 @@
        transform: translateY(0);
    }
 
+   .box:hover {
+       background: rgba(255, 255, 255, 0.25);
+       box-shadow: 0 12px 30px rgba(255,255,255,0.2);
+       transform: translateY(-4px);
+   }
+
    .title { font-size: 2rem; margin-bottom: 15px; font-family: "Playfair Display", serif; text-shadow: 0 0 10px rgba(255, 255, 255, 0.4); }
    .text { font-size: 1.15rem; line-height: 1.7; }
 
-   .skills { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
-   .skill-tag {
-       padding: 10px 20px;
-       border-radius: 30px;
-       background: rgba(255, 255, 255, 0.25);
-       backdrop-filter: blur(8px);
-       font-size: 1rem;
-       font-weight: 600;
-       color: #fff;
-       transition: 0.3s;
-       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-       cursor: default;
+   /* Skills with bars */
+   .skills { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+   .skill-item {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       gap: 15px;
    }
-
-   .skill-tag:hover {
-       transform: translateY(-4px) scale(1.05);
-       background: rgba(255, 255, 255, 0.35);
-       box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+   .skill-name { font-weight: 600; }
+   .skill-bar {
+       flex: 1;
+       height: 12px;
+       border-radius: 20px;
+       background: rgba(255,255,255,0.2);
+       overflow: hidden;
+   }
+   .skill-progress {
+       height: 100%;
+       width: 0;
+       background: linear-gradient(135deg, #ff1e42, #ff7a00);
+       border-radius: 20px;
+       transition: width 1.5s ease;
    }
 
    ul { padding: 0; list-style: none; margin-top: 10px; }
@@ -153,7 +184,7 @@
    a { color: #ffe9bf; text-decoration: none; transition: 0.3s; }
    a:hover { color: #fff; text-shadow: 0 0 10px rgba(255, 255, 255, 0.6); }
 
-   /* Back to top button */
+   /* Back to top */
    #backToTop {
        position: fixed;
        bottom: 30px;
@@ -167,13 +198,12 @@
        box-shadow: 0 8px 20px rgba(255, 70, 70, 0.5);
        display: none;
        transition: 0.3s ease;
+       z-index: 2;
    }
 
-   #backToTop:hover {
-       transform: translateY(-4px);
-       background: linear-gradient(135deg, #ff324d, #ff9d00);
-   }
+   #backToTop:hover { transform: translateY(-4px); background: linear-gradient(135deg, #ff324d, #ff9d00); }
 
+   /* Media queries */
    @media(max-width: 960px) {
        .resume-container { width: 90vw; }
        .resume-header { flex-direction: column; align-items: center; text-align: center; }
@@ -184,11 +214,14 @@
 </head>
 <body>
 
+<!-- Particles background -->
+<canvas id="particles"></canvas>
+
 <div class="resume-container">
 
     <div class="resume-header">
         <div class="profile-pic-container">
-            <img src="your-picture.jpg"  />
+            <img src="your-picture.jpg" alt="Don Jerome Pastrana" />
         </div>
         <div class="header-info">
             <h1>Pastrana, Don Jerome</h1>
@@ -199,45 +232,18 @@
 
     <div class="box">
         <div class="title">About Me</div>
-        <p class="text">
-            I'm a creative web developer and designer who transforms ideas into aesthetic,
-            smooth, and modern digital experiences. I specialize in making websites visually 
-            beautiful, functional, and enjoyable to use.
-        </p>
-    </div>
-
-    <div class="box">
-        <div class="title">Bio</div>
-        <p class="text">
-            With experience in UI/UX design and front-end development, I focus on 
-            creating seamless interactions, balanced layouts, and modern interfaces.
-            I believe that design is not just what you see — it’s how it feels and flows.
+        <p class="text" id="bio-text">
         </p>
     </div>
 
     <div class="box">
         <div class="title">Skills</div>
         <div class="skills">
-            <div class="skill-tag">HTML</div>
-            <div class="skill-tag">CSS</div>
-            <div class="skill-tag">JavaScript</div>
-            <div class="skill-tag">UI / UX</div>
-            <div class="skill-tag">Responsive Design</div>
-            <div class="skill-tag">Figma</div>
-            <div class="skill-tag">Git & GitHub</div>
-            <div class="skill-tag">Graphic Design</div>
+            <div class="skill-item"><span class="skill-name">HTML</span><div class="skill-bar"><div class="skill-progress" data-progress="95%"></div></div></div>
+            <div class="skill-item"><span class="skill-name">CSS</span><div class="skill-bar"><div class="skill-progress" data-progress="90%"></div></div></div>
+            <div class="skill-item"><span class="skill-name">JavaScript</span><div class="skill-bar"><div class="skill-progress" data-progress="85%"></div></div></div>
+            <div class="skill-item"><span class="skill-name">UI/UX</span><div class="skill-bar"><div class="skill-progress" data-progress="80%"></div></div></div>
         </div>
-    </div>
-
-    <div class="box">
-        <div class="title">What I Can Bring</div>
-        <ul>
-            <li>✔ Clean, modern, and beautiful UI designs</li>
-            <li>✔ Smooth animations for premium UX</li>
-            <li>✔ Fast and responsive web development</li>
-            <li>✔ Branding and layout consistency</li>
-            <li>✔ Creative ideas & problem-solving skills</li>
-        </ul>
     </div>
 
     <div class="box">
@@ -256,36 +262,93 @@
 <div id="backToTop">↑ Top</div>
 
 <script>
-  // Dynamic greeting
-  const greetingEl = document.getElementById('greeting');
-  const hour = new Date().getHours();
-  let greeting = '';
-  if(hour < 12) greeting = 'Good Morning ☀️';
-  else if(hour < 18) greeting = 'Good Afternoon 🌤️';
-  else greeting = 'Good Evening 🌙';
-  greetingEl.textContent = greeting;
+    // Dynamic greeting
+    const greetingEl = document.getElementById('greeting');
+    const hour = new Date().getHours();
+    let greeting = '';
+    if(hour < 12) greeting = 'Good Morning ☀️';
+    else if(hour < 18) greeting = 'Good Afternoon 🌤️';
+    else greeting = 'Good Evening 🌙';
+    greetingEl.textContent = greeting;
 
- 
-  const boxes = document.querySelectorAll('.box');
-  function revealBoxes() {
-      boxes.forEach(box => {
-          const boxTop = box.getBoundingClientRect().top;
-          const windowHeight = window.innerHeight;
-          if(boxTop < windowHeight - 100) {
-              box.classList.add('visible');
-          }
-      });
-  }
-  window.addEventListener('scroll', revealBoxes);
-  window.addEventListener('load', revealBoxes);
+    // Typewriter effect for bio
+    const bioText = "I'm a creative web developer and designer who transforms ideas into aesthetic, smooth, and modern digital experiences.";
+    let i = 0;
+    const bioEl = document.getElementById('bio-text');
+    function typeWriter() {
+        if(i < bioText.length){
+            bioEl.innerHTML += bioText.charAt(i);
+            i++;
+            setTimeout(typeWriter, 40);
+        }
+    }
+    typeWriter();
 
-  // Back to top button
-  const backToTop = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-      if(window.scrollY > 300) backToTop.style.display = 'block';
-      else backToTop.style.display = 'none';
-  });
-  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    // Scroll animations
+    const boxes = document.querySelectorAll('.box');
+    function revealBoxes() {
+        boxes.forEach(box => {
+            const boxTop = box.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if(boxTop < windowHeight - 100) {
+                box.classList.add('visible');
+            }
+        });
+    }
+    window.addEventListener('scroll', revealBoxes);
+    window.addEventListener('load', () => {
+        revealBoxes();
+        // Animate skill bars
+        document.querySelectorAll('.skill-progress').forEach(bar => {
+            bar.style.width = bar.getAttribute('data-progress');
+        });
+        initParticles();
+    });
+
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if(window.scrollY > 300) backToTop.style.display = 'block';
+        else backToTop.style.display = 'none';
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Particle background
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let particlesArray;
+    function initParticles() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        particlesArray = [];
+        const numberOfParticles = 80;
+        for(let i=0; i<numberOfParticles; i++){
+            particlesArray.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 3 + 1,
+                speedX: Math.random() * 1 - 0.5,
+                speedY: Math.random() * 1 - 0.5
+            });
+        }
+        animateParticles();
+    }
+
+    function animateParticles(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        particlesArray.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+            ctx.fillStyle = 'rgba(255,255,255,0.5)';
+            ctx.fill();
+            p.x += p.speedX;
+            p.y += p.speedY;
+
+            if(p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+            if(p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+        });
+        requestAnimationFrame(animateParticles);
+    }
 </script>
 
 </body>
