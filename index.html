@@ -1,336 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Cool Resume – Pastrana, Don Jerome J,</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cool Resume – Don Jerome</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+<style>
+    body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #ff4e50, #ffffff);
+        min-height: 100vh;
+        padding: 40px;
+        display: flex;
+        justify-content: center;
+    }
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+    .resume-container {
+        width: 900px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        animation: fadeIn 1.2s ease forwards;
+    }
 
-    <style>
-        body {
-            margin: 0;
-            font-family: "Poppins", sans-serif;
-            background: linear-gradient(135deg, #ff4e50, #ffffff);
-            min-height: 100vh;
-            padding: 40px;
-            display: flex;
-            justify-content: center;
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
         }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
+    .resume-header {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 20px;
+        backdrop-filter: blur(15px);
+        color: #fff;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        padding: 25px 40px;
+        transition: background 0.3s ease;
+    }
+
+    .resume-header:hover {
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    .profile-pic-container {
+        position: relative;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: linear-gradient(270deg, #ff4e50, #f9d423, #1f4037, #99f2c8);
+        background-size: 800% 800%;
+        animation: gradientAnimation 16s ease infinite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+        border: 5px solid rgba(255, 255, 255, 0.25);
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .profile-pic-container img {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        border: 4px solid rgba(255, 255, 255, 0.85);
+        background: transparent; /* removed white background */
+        display: block;
+    }
+
+    .header-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .header-info h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 3rem;
+        margin: 0;
+        color: #fffdf5;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .header-info p {
+        font-size: 1.3rem;
+        margin-top: 10px;
+        opacity: 0.9;
+    }
+
+    .box {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 35px;
+        border-radius: 20px;
+        backdrop-filter: blur(18px);
+        color: #fffef7;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+        animation: slideUp 1.1s ease;
+        transition: 0.3s ease;
+    }
+
+    .box:hover {
+        transform: translateY(-6px);
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .title {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        font-family: "Playfair Display", serif;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    }
+
+    .text {
+        font-size: 1.15rem;
+        line-height: 1.7;
+    }
+
+    .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .skill-tag {
+        padding: 10px 20px;
+        border-radius: 30px;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(8px);
+        font-size: 1rem;
+        font-weight: 600;
+        color: #fff;
+        transition: 0.3s;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        cursor: default;
+    }
+
+    .skill-tag:hover {
+        transform: translateY(-4px);
+        background: rgba(255, 255, 255, 0.35);
+    }
+
+    ul {
+        padding: 0;
+        list-style: none;
+        margin-top: 10px;
+    }
+
+    ul li {
+        margin: 12px 0;
+        font-size: 1.15rem;
+        color: #fffdf5;
+    }
+
+    a {
+        color: #ffe9bf;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    a:hover {
+        color: #fff;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    }
+
+    .hire-btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 14px 25px;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 700;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #ff1e42, #ff7a00);
+        box-shadow: 0 8px 22px rgba(255, 70, 70, 0.5);
+        transition: 0.3s ease;
+        text-decoration: none;
+        width: max-content;
+    }
+
+    .hire-btn:hover {
+        transform: translateY(-4px);
+        background: linear-gradient(135deg, #ff324d, #ff9d00);
+    }
+
+    @media(max-width: 960px) {
         .resume-container {
-            width: 900px;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            animation: fadeIn 1.2s ease forwards;
+            width: 90vw;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* HEADER BOX */
         .resume-header {
-            display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 30px;
-            background: rgba(255, 255, 255, 0.12);
-            border-radius: 20px;
-            backdrop-filter: blur(15px);
-            color: #fff;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            padding: 25px 40px;
-            transition: background 0.3s ease;
+            text-align: center;
         }
 
-        .resume-header:hover {
-            background: rgba(255, 255, 255, 0.25);
-        }
-
-        /* Profile Picture Container with animated background */
         .profile-pic-container {
-            position: relative;
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            background: linear-gradient(270deg, #ff4e50, #f9d423, #1f4037, #99f2c8);
-            background-size: 800% 800%;
-            animation: gradientAnimation 16s ease infinite;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
-            border: 5px solid rgba(255, 255, 255, 0.25);
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
-        @keyframes gradientAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            width: 140px;
+            height: 140px;
+            margin-bottom: 20px;
         }
 
         .profile-pic-container img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-            border: 4px solid rgba(255, 255, 255, 0.85);
-            background: #fff;
+            width: 130px;
+            height: 130px;
         }
-
-        /* Name and title */
-        .header-info {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .header-info h1 {
-            font-family: "Playfair Display", serif;
-            font-size: 3rem;
-            margin: 0;
-            color: #fffdf5;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-
-        .header-info p {
-            font-size: 1.3rem;
-            margin-top: 10px;
-            opacity: 0.9;
-        }
-
-        /* Section Boxes */
-        .box {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 35px;
-            border-radius: 20px;
-            backdrop-filter: blur(18px);
-            color: #fffef7;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-            animation: slideUp 1.1s ease;
-            transition: 0.3s ease;
-        }
-
-        .box:hover {
-            transform: translateY(-6px);
-            background: rgba(255, 255, 255, 0.25);
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Titles */
-        .title {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            font-family: "Playfair Display", serif;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
-        }
-
-        .text {
-            font-size: 1.15rem;
-            line-height: 1.7;
-        }
-
-        /* Skills Tags */
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .skill-tag {
-            padding: 10px 20px;
-            border-radius: 30px;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(8px);
-            font-size: 1rem;
-            font-weight: 600;
-            color: #fff;
-            transition: 0.3s;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            cursor: default;
-        }
-
-        .skill-tag:hover {
-            transform: translateY(-4px);
-            background: rgba(255, 255, 255, 0.35);
-        }
-
-        /* Contact List */
-        ul {
-            padding: 0;
-            list-style: none;
-            margin-top: 10px;
-        }
-
-        ul li {
-            margin: 12px 0;
-            font-size: 1.15rem;
-            color: #fffdf5;
-        }
-
-        a {
-            color: #ffe9bf;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        a:hover {
-            color: #fff;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-        }
-
-        /* Button */
-        .hire-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 14px 25px;
-            color: #fff;
-            font-size: 1.2rem;
-            font-weight: 700;
-            border-radius: 30px;
-            background: linear-gradient(135deg, #ff1e42, #ff7a00);
-            box-shadow: 0 8px 22px rgba(255, 70, 70, 0.5);
-            transition: 0.3s ease;
-            text-decoration: none;
-            width: max-content;
-        }
-
-        .hire-btn:hover {
-            transform: translateY(-4px);
-            background: linear-gradient(135deg, #ff324d, #ff9d00);
-        }
-
-        /* Responsive */
-        @media(max-width: 960px) {
-            .resume-container {
-                width: 90vw;
-            }
-
-            .resume-header {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .profile-pic-container {
-                width: 140px;
-                height: 140px;
-                margin-bottom: 20px;
-            }
-
-            .profile-pic-container img {
-                width: 130px;
-                height: 130px;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
 
-    <div class="resume-container">
+<div class="resume-container">
 
-        <!-- HEADER with photo and info side by side -->
-        <div class="resume-header">
-            <div class="profile-pic-container">
-                <img src="/mnt/data/d278af45-bf84-43b4-94d8-08f115f837e6.png" alt="Don Jerome Profile Picture" />
-            </div>
-            <div class="header-info">
-                <h1>Don Jerome</h1>
-                <p>Web Developer • UI/UX Designer • Creative Thinker</p>
-                <a href="#" class="hire-btn">Hire Me</a>
-            </div>
+    <div class="resume-header">
+        <div class="profile-pic-container">
+            <img src="/mnt/data/8fd5ab42-76cc-491d-90fc-a7519010b8a0.png" alt="Don Jerome Profile Picture" />
         </div>
-
-        <!-- ABOUT -->
-        <div class="box">
-            <div class="title">About Me</div>
-            <p class="text">
-                I'm a creative web developer and designer who transforms ideas into aesthetic,
-                smooth, and modern digital experiences. I specialize in making websites visually 
-                beautiful, functional, and enjoyable to use.
-            </p>
+        <div class="header-info">
+            <h1>Don Jerome</h1>
+            <p>Web Developer • UI/UX Designer • Creative Thinker</p>
+            <a href="#" class="hire-btn">Hire Me</a>
         </div>
-
-        <!-- BIO -->
-        <div class="box">
-            <div class="title">Bio</div>
-            <p class="text">
-                With experience in UI/UX design and front-end development, I focus on 
-                creating seamless interactions, balanced layouts, and modern interfaces.
-                I believe that design is not just what you see — it’s how it feels and flows.
-            </p>
-        </div>
-
-        <!-- SKILLS -->
-        <div class="box">
-            <div class="title">Skills</div>
-            <div class="skills">
-                <div class="skill-tag">HTML</div>
-                <div class="skill-tag">CSS</div>
-                <div class="skill-tag">JavaScript</div>
-                <div class="skill-tag">UI / UX</div>
-                <div class="skill-tag">Responsive Design</div>
-                <div class="skill-tag">Figma</div>
-                <div class="skill-tag">Git & GitHub</div>
-                <div class="skill-tag">Graphic Design</div>
-            </div>
-        </div>
-
-        <!-- ADVANTAGES -->
-        <div class="box">
-            <div class="title">What I Can Bring</div>
-            <ul>
-                <li>✔ Clean, modern, and beautiful UI designs</li>
-                <li>✔ Smooth animations for premium UX</li>
-                <li>✔ Fast and responsive web development</li>
-                <li>✔ Branding and layout consistency</li>
-                <li>✔ Creative ideas & problem-solving skills</li>
-            </ul>
-        </div>
-
-        <!-- CONTACT -->
-        <div class="box">
-            <div class="title">Contact</div>
-            <ul>
-                <li>📧 Donjerome@gmail.com</li>
-                <li>📍 Quezon City, Commonwealth</li>
-                <li><a href="https://www.facebook.com/donjerome09" target="_blank">Facebook</a></li>
-                <li><a href="https://www.linkedin.com/in/donjerome" target="_blank">LinkedIn</a></li>
-                <li><a href="https://github.com/D0n-cyber" target="_blank">GitHub</a></li>
-            </ul>
-        </div>
-
     </div>
+
+    <div class="box">
+        <div class="title">About Me</div>
+        <p class="text">
+            I'm a creative web developer and designer who transforms ideas into aesthetic,
+            smooth, and modern digital experiences. I specialize in making websites visually 
+            beautiful, functional, and enjoyable to use.
+        </p>
+    </div>
+
+    <div class="box">
+        <div class="title">Bio</div>
+        <p class="text">
+            With experience in UI/UX design and front-end development, I focus on 
+            creating seamless interactions, balanced layouts, and modern interfaces.
+            I believe that design is not just what you see — it’s how it feels and flows.
+        </p>
+    </div>
+
+    <div class="box">
+        <div class="title">Skills</div>
+        <div class="skills">
+            <div class="skill-tag">HTML</div>
+            <div class="skill-tag">CSS</div>
+            <div class="skill-tag">JavaScript</div>
+            <div class="skill-tag">UI / UX</div>
+            <div class="skill-tag">Responsive Design</div>
+            <div class="skill-tag">Figma</div>
+            <div class="skill-tag">Git & GitHub</div>
+            <div class="skill-tag">Graphic Design</div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="title">What I Can Bring</div>
+        <ul>
+            <li>✔ Clean, modern, and beautiful UI designs</li>
+            <li>✔ Smooth animations for premium UX</li>
+            <li>✔ Fast and responsive web development</li>
+            <li>✔ Branding and layout consistency</li>
+            <li>✔ Creative ideas & problem-solving skills</li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <div class="title">Contact</div>
+        <ul>
+            <li>📧 Donjerome@gmail.com</li>
+            <li>📍 Quezon City, Commonwealth</li>
+            <li><a href="https://www.facebook.com/donjerome09" target="_blank">Facebook</a></li>
+            <li><a href="https://www.linkedin.com/in/donjerome" target="_blank">LinkedIn</a></li>
+            <li><a href="https://github.com/D0n-cyber" target="_blank">GitHub</a></li>
+        </ul>
+    </div>
+
+</div>
 
 </body>
 </html>
