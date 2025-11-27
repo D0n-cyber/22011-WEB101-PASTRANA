@@ -1,40 +1,117 @@
 <!DOCTYPE html>
-<html lang="aight">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Static Web Profile</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #4b79a1, #283e51);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            width: 380px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-header h1 {
+            margin: 0;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+
+        .profile-header h2 {
+            margin: 5px 0 0;
+            font-weight: 300;
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .bio {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .contact-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-info li {
+            margin: 10px 0;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-info a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #d1e3ff;
+        }
+    </style>
 </head>
 <body>
     <div class="profile-card">
         <div class="profile-header">
-            <img src="profile-picture.jpg" alt="Profile Picture" class="profile-img">
             <h1>Don Jerome</h1>
             <h2>Web Developer & Designer</h2>
         </div>
 
         <div class="profile-body">
             <p class="bio">
-                I craft simple, powerful websites through purposeful HTML and thoughtful design.Passionate about turning ideas into functional, 
-                user-focused web pages with clean HTML.
+                I craft simple, powerful websites through purposeful HTML and thoughtful design.
+                Passionate about turning ideas into clean, user‑focused web pages.
             </p>
 
             <div class="contact-info">
                 <h3>Contact & Links</h3>
                 <ul>
-                    <li><i class="icon email">📧</i> Donjerome@gmail.com</li>
-                    <li><i class="icon location">📍</i> quezon city, commonwealth</li>
-                     <li>
-                        <a href="https://www.facebook.com/donjerome09" target="_blank"><i class="icon github">🐙</i> FACEBOOK</a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/in/donjerome" target="_blank"><i class="icon linkedin">🔗</i> LinkedIn</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/D0n-cyber" target="_blank"><i class="icon github">🐙</i> GitHub</a>
-                    </li>
+                    <li>📧 Donjerome@gmail.com</li>
+                    <li>📍 Quezon City, Commonwealth</li>
+                    <li><a href="https://www.facebook.com/donjerome09" target="_blank">🔵 Facebook</a></li>
+                    <li><a href="https://www.linkedin.com/in/donjerome" target="_blank">🔗 LinkedIn</a></li>
+                    <li><a href="https://github.com/D0n-cyber" target="_blank">🐙 GitHub</a></li>
                 </ul>
             </div>
         </div>
