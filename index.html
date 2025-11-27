@@ -178,6 +178,25 @@
        border-radius: 20px;
        transition: width 1.5s ease;
    }
+   <!-- Skills Box -->
+<div class="box" id="skills-box">
+    <div class="title">Skills</div>
+    <div class="skills">
+        <div class="skill-item"><span class="skill-name">HTML</span>
+            <div class="skill-bar"><div class="skill-progress" data-progress="95%"></div></div>
+        </div>
+        <div class="skill-item"><span class="skill-name">CSS</span>
+            <div class="skill-bar"><div class="skill-progress" data-progress="90%"></div></div>
+        </div>
+        <div class="skill-item"><span class="skill-name">JavaScript</span>
+            <div class="skill-bar"><div class="skill-progress" data-progress="85%"></div></div>
+        </div>
+        <div class="skill-item"><span class="skill-name">UI/UX</span>
+            <div class="skill-bar"><div class="skill-progress" data-progress="80%"></div></div>
+        </div>
+    </div>
+</div>
+
 
    ul { padding: 0; list-style: none; margin-top: 10px; }
    ul li { margin: 12px 0; font-size: 1.15rem; color: #fffdf5; }
@@ -345,6 +364,25 @@
         }
         animateParticles();
     }
+
+const skillBars = document.querySelectorAll('.skill-progress');
+const skillsBox = document.getElementById('skills-box');
+
+function animateSkills() {
+    const boxTop = skillsBox.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    if (boxTop < windowHeight - 100) {
+        skillBars.forEach((bar, index) => {
+            setTimeout(() => {
+                bar.style.width = bar.getAttribute('data-progress');
+            }, index * 200); // stagger each bar by 200ms
+        });
+        window.removeEventListener('scroll', animateSkills); // animate only once
+    }
+}
+
+window.addEventListener('scroll', animateSkills);
+window.addEventListener('load', animateSkills); // trigger on load if already visible
 
     function animateParticles(){
         ctx.clearRect(0,0,canvas.width,canvas.height);
